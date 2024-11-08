@@ -9,8 +9,8 @@ import (
 
 func TestGetApiKey(t *testing.T) {
 
-	headerOK := make(http.Header)
-	headerOK.Add("Authorization", "ApiKey 123abc")
+	headerCorrect := make(http.Header)
+	headerCorrect.Add("Authorization", "ApiKey 123abc")
 
 	headerMissing := make(http.Header)
 	headerMissing.Add("as", "ds")
@@ -23,7 +23,7 @@ func TestGetApiKey(t *testing.T) {
 		err    error
 		header http.Header
 	}{
-		"passing":        {key: "123abc", err: nil, header: headerOK},
+		"passing":        {key: "123abc", err: nil, header: headerCorrect},
 		"missing header": {key: "123abc", err: errors.New("no authorization header included"), header: headerMissing},
 		"malformed":      {key: "123abc", err: errors.New("malformed authorization header"), header: headerMalformed},
 	}
