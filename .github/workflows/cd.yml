@@ -28,8 +28,6 @@ jobs:
 
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v2'
-        with:
-          project_id: 'arboreal-path-441411-k1'
 
       - name: 'Use gcloud CLI'
         run: 'gcloud info'
